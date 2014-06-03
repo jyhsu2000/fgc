@@ -196,7 +196,7 @@ class GameController extends BaseController {
     public function redirect()
 	{
         //檢查是否有編輯遊戲權限
-        if(!(member::isGM(Input::get('game')) && Input::get('action') == "edit")){
+        if(!member::isGM(Input::get('game'))){
             return Redirect::to('game');
         }
         //請求類型

@@ -119,6 +119,10 @@ CREATE TABLE `game_record` (
   KEY `id1` (`id1`),
   KEY `id2` (`id2`),
   KEY `status_game_idx` (`game`),
+  KEY `status_id1_idx` (`game`,`id1`),
+  KEY `status_id2_idx` (`game`,`id2`),
+  CONSTRAINT `status_id1` FOREIGN KEY (`game`, `id1`) REFERENCES `avatar` (`game`, `id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `status_id2` FOREIGN KEY (`game`, `id2`) REFERENCES `avatar` (`game`, `id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `status_game` FOREIGN KEY (`game`) REFERENCES `game` (`game`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='遊戲狀態';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -234,8 +238,7 @@ CREATE TABLE `stats` (
   PRIMARY KEY (`id`,`game`),
   KEY `id` (`id`),
   KEY `game` (`game`),
-  CONSTRAINT `stats_game` FOREIGN KEY (`game`) REFERENCES `game` (`game`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `stats_id` FOREIGN KEY (`id`) REFERENCES `avatar` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `stats_id` FOREIGN KEY (`id`, `game`) REFERENCES `avatar` (`id`, `game`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='戰績';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
