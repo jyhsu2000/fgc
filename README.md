@@ -15,7 +15,7 @@ Each game has a detailed description, and you can download each game free.
 
 Installation
 --------
-See [Guideline](http://goo.gl/v029BG) in Evernote
+See [Guideline](https://github.com/jyhsu2000/fgc/wiki/Guideline) in Wiki
 
 Issue or Suggestion
 --------
