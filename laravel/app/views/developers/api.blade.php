@@ -15,6 +15,16 @@
     若沒附上<code>gameID</code>，將會得到錯誤訊息<code>Require gameID</code><br />
     詳情請見下方API區段
 </div>
+<div class="alert alert-block">
+    <h3>API 補充說明：</h3>
+    有個問題似乎在API上沒有詳細說明OTL<br />
+    如果你的遊戲 client 登入後 如果目前你的遊戲 只有你在線上的話<br />
+    我的 list 資料會設定為<code>null</code><br />
+    然後間隔一定時間（目前設定<code>3秒</code>，可能更改）<br />
+    會<code>再次重新傳送 list JSON</code>給client<br />
+    直到 list 上有人才會停止間隔傳送<br />
+    請注意 第二次以後傳送的 list資料還是有可能為 <code>null</code> !!!!!<br />
+</div>
 <div class="alert alert-info">
     <h3>通知：</h3>
     請各組告訴我你們遊戲要使用的gameID<br />
@@ -151,8 +161,9 @@ Port：5566<br />
 請使用UTF-8編碼傳送JSON資料<br />
 <br />
 <h2>JSON傳輸格式</h2>
+（前方標籤為JSON的發送方）<br />
 <br />
-連線後身份驗證
+<span class="label label-info">Client</span> 連線後身份驗證
 <pre>
 {
      "token": (string),
@@ -160,14 +171,14 @@ Port：5566<br />
 }
 </pre>
 <br />
-身份驗證失敗
+<span class="label label-important">Server</span> 身份驗證失敗
 <pre>
 {
      "result": false (boolean)
 }
 </pre>
 <br />
-身份驗證成功後傳送的玩家列表
+<span class="label label-important">Server</span> 身份驗證成功後傳送的玩家列表
 <pre>
 {
     "result": true (boolean),
@@ -180,21 +191,21 @@ Port：5566<br />
 }
 </pre>
 <br />
-要求與誰對戰之請求
+<span class="label label-info">Client</span> 要求與誰對戰之請求
 <pre>
 {
     "invite": id(string)
 }
 </pre>
 <br />
-伺服器配對結果 resultID 0
+<span class="label label-important">Server</span> 伺服器配對結果 resultID 0
 <pre>
 {
     "resultID": 0(int)
 }
 </pre>
 <br />
-伺服器配對結果 resultID 1, 附上對方玩家id
+<span class="label label-important">Server</span> 伺服器配對結果 resultID 1, 附上對方玩家id
 <pre>
 {
     "resultID": 1(int),
@@ -202,14 +213,14 @@ Port：5566<br />
 }
 </pre>
 <br />
-回覆是否接受對方對戰要求
+<span class="label label-info">Client</span> 回覆是否接受對方對戰要求
 <pre>
 {
     "accept": (boolean)
 }
 </pre>
 <br />
-伺服器配對結果 resultID 2, 附上玩家列表
+<span class="label label-important">Server</span> 伺服器配對結果 resultID 2, 附上玩家列表
 <pre>
 {
     "resultID": 2(int)
@@ -222,7 +233,7 @@ Port：5566<br />
 }
 </pre>
 <br />
-遊戲開始, 對方玩家id與誰先誰後
+<span class="label label-important">Server</span> 遊戲開始, 對方玩家id與誰先誰後
 <pre>
 {
     "id": (string),
@@ -230,7 +241,7 @@ Port：5566<br />
 }
 </pre>
 <br />
-棋步資料與是否寫入資料庫的註記
+<span class="label label-info">Client</span> 棋步資料與是否寫入資料庫的註記
 <pre>
 {
     "data": (string),
@@ -238,7 +249,7 @@ Port：5566<br />
 }
 </pre>
 <br />
-遊戲結束 獲勝者的id
+<span class="label label-info">Client</span> 遊戲結束 獲勝者的id
 <pre>
 {
     "winner": 獲勝者id (id)(string)
@@ -247,7 +258,7 @@ Port：5566<br />
 (補充, 當有一玩家送出了winner資訊後, 如果server在30秒內沒有收到另一方winner資訊, 將會自動斷開對方的Socket連線)<br />
 <br />
 <br />
-伺服器回報玩家收到獲勝者id資訊
+<span class="label label-important">Server</span> 伺服器回報玩家收到獲勝者id資訊
 <pre>
 {
     "result": true(boolean)
