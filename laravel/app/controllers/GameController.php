@@ -489,6 +489,8 @@ class GameController extends BaseController {
         }else{
             //列表
             $gameID = $arg;
+            //每頁顯示數量
+            $amount=20;
             if($gameID!=""){
                 //有指定遊戲
                 //檢查遊戲是否存在，且未隱藏
@@ -498,11 +500,11 @@ class GameController extends BaseController {
                     return Redirect::to('game/live');
                 }
                 //房間列表
-                $roomList = DB::table('game_record')->where('game',$gameID)->whereNull('endTime')->orderBy('startTime','desc')->get();
+                $roomList = DB::table('game_record')->where('game',$gameID)->whereNull('endTime')->orderBy('startTime','desc')->paginate($amount);
             }else{
                 //未指定遊戲
                 //房間列表
-                $roomList = DB::table('game_record')->whereNull('endTime')->orderBy('startTime','desc')->leftJoin('game','game_record.game','=','game.game')->get();
+                $roomList = DB::table('game_record')->whereNull('endTime')->orderBy('startTime','desc')->leftJoin('game','game_record.game','=','game.game')->paginate($amount);
             }
             View::share('roomList',$roomList);
             //指定的遊戲ID
@@ -543,6 +545,8 @@ class GameController extends BaseController {
         }else{
             //列表
             $gameID = $arg;
+            //每頁顯示數量
+            $amount=20;
             if($gameID!=""){
                 //有指定遊戲
                 //檢查遊戲是否存在，且未隱藏
@@ -552,11 +556,11 @@ class GameController extends BaseController {
                     return Redirect::to('game/record');
                 }
                 //房間列表
-                $roomList = DB::table('game_record')->where('game',$gameID)->whereNotNull('endTime')->orderBy('startTime','desc')->get();
+                $roomList = DB::table('game_record')->where('game',$gameID)->whereNotNull('endTime')->orderBy('startTime','desc')->paginate($amount);
             }else{
                 //未指定遊戲
                 //房間列表
-                $roomList = DB::table('game_record')->whereNotNull('endTime')->orderBy('startTime','desc')->leftJoin('game','game_record.game','=','game.game')->get();
+                $roomList = DB::table('game_record')->whereNotNull('endTime')->orderBy('startTime','desc')->leftJoin('game','game_record.game','=','game.game')->paginate($amount);
             }
             View::share('roomList',$roomList);
             //指定的遊戲ID

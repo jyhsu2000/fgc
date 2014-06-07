@@ -1,8 +1,8 @@
 FGC
 =========
 - Official Website: https://fgc.heapthings.com
-- Last Release: `2014-06-06`
-- Dev Commit: `241` `7f09befba2` (commit in dev repo)
+- Last Release: `2014-06-07`
+- Dev Commit: `243` `0f4775dff4` (commit in dev repo)
 
 Description
 --------

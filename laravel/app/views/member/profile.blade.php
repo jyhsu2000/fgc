@@ -42,7 +42,7 @@ $(document).ready(function() {
             <table class="table table-bordered">
                 <tbody>
                     <tr><td style="text-align:center;" colspan="2"><img src="{{ member::getImage(200,$email) }}">
-                        @if(member::getType($email)=="local" && $email=='')
+                        @if($email=='')
                         <br /><a href="https://en.gravatar.com/gravatars/new/" target="_blank">[透過Gravatar更換大頭貼]</a>
                         @endif
                     </td></tr>

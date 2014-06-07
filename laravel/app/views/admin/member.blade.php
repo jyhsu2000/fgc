@@ -20,11 +20,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				
 				@foreach ($data as $id => $item)
 					<tr>
 						<td>{{ $item->uid }}</td>
-						<td>@if($item->loginType=="local")<img src={{ member::getImage(40,$item->username) }} />@endif</td>
+						<td><img src={{ member::getImage(40,$item->username) }} /></td>
 						<td>{{ $item->username }}</td>
 						<td><a href="{{ URL::to('profile/'.$item->uid) }}" title="點擊查看個人資料">{{ $item->nickname }}</a></td>
 						<td>

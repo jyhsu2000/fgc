@@ -146,6 +146,14 @@ class member
     //取得大頭貼路徑
     public static function getImage($size,$email="")
     {
+        //暫時全部改用gravatar
+        $default = "mm";
+        if(member::isExist($email)){
+            return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        }else{
+            return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( member::getEmail() ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        }
+        /*
         //若有輸入Email，且該信箱確實存在，直接從資料庫調資料
         if(member::isExist($email)){
             if(member::getType($email)=="local"){
@@ -183,6 +191,7 @@ class member
             return $url;
         }
         return null;
+        */
     }
     //檢查是否擁有特定權限
     public static function hasPerm($perm,$email="")
