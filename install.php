@@ -152,10 +152,9 @@ m;
                             echo "<div class=\"alert alert-error\">";
                             echo $e->getmessage();
                             echo "</div>";
-                        }finally{
-                            //關閉連結
-                            @mysqli_close($conn);
                         }
+                        //關閉連結
+                        @mysqli_close($conn);
                         ?>
                     </div>
                 </div>
