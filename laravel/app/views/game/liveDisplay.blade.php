@@ -34,6 +34,9 @@ $(document).ready(function() {
                     <td colspan="2">開始時間：{{ $data->startTime }}</td>
                 </tr>
             </table>
+            <div class="alert">
+            注意：目前尚未解析資料，以下為對戰時實際傳送的資訊
+            </div>
             最後刷新時間：<span id="lastUpdate"></span>
             <table class="table table-bordered table-hover" id="show">
                 <tr><td style="text-align:center;">讀取中...</td></tr>

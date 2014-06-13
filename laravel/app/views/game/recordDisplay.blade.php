@@ -25,6 +25,9 @@
                     </td>
                 </tr>
             </table>
+            <div class="alert">
+            注意：目前尚未解析資料，以下為對戰時實際傳送的資訊
+            </div>
             <table class="table table-bordered table-hover" id="show">
                 <tr><td style="text-align:center;">{{ nl2br($data->record) }}</td></tr>
             </table>

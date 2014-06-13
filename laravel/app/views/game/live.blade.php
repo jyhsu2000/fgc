@@ -7,7 +7,7 @@
 @section('content')
 <div class="row-fluid">
 	<fieldset>
-        <div class="offset2 span8">
+        <div class="offset1 span10">
             <legend><h3>實況</h3></legend>
             <div class="input-prepend input-append">
                 <span class="add-on">遊戲：</span>

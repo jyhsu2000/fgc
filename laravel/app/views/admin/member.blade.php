@@ -8,6 +8,9 @@
 <div class="row-fluid">
 	<fieldset>
 		<legend><h3>會員管理</h3></legend>
+        <div class="pagination pagination-centered">
+			{{ $data->links() }}
+		</div>
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
@@ -21,9 +24,9 @@
 			</thead>
 			<tbody>
 				@foreach ($data as $id => $item)
-					<tr>
+					<tr style="height: 60px">
 						<td>{{ $item->uid }}</td>
-						<td><img src={{ member::getImage(40,$item->username) }} /></td>
+						<td><img src={{ member::getImage(40,$item->username) }}/></td>
 						<td>{{ $item->username }}</td>
 						<td><a href="{{ URL::to('profile/'.$item->uid) }}" title="點擊查看個人資料">{{ $item->nickname }}</a></td>
 						<td>
@@ -48,6 +51,9 @@
 				@endforeach
 			</tbody>
 		</table>
+        <div class="pagination pagination-centered">
+			{{ $data->links() }}
+		</div>
 	</fieldset>
 </div>
 

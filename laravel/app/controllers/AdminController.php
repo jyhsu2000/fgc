@@ -45,7 +45,10 @@ class AdminController extends BaseController {
     //會員管理
     public function member()
 	{
-        $data = DB::table('user')->get();
+        //每頁顯示數量
+		$amount=50;
+        //讀取會員清單
+        $data = DB::table('user')->paginate($amount);
         View::share('data',$data);
         //建立View
 		return View::make('admin.member');

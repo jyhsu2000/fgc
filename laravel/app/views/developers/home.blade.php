@@ -12,7 +12,7 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr><td style="text-align:center;" colspan="2">
-                        開發人員介面
+                        <font size="4">GitHub專案：<a href="https://github.com/jyhsu2000/fgc" target="_blank" title="點擊進入GitHub專案">https://github.com/jyhsu2000/fgc</a></font>
                     </td></tr>
                 </tbody>
             </table>
