@@ -15,7 +15,9 @@ Each game has a detailed description, and you can download each game free.
 
 Installation
 --------
-See [Guideline](https://github.com/jyhsu2000/fgc/wiki/Guideline) in Wiki
+See Guideline in Wiki
+[Guideline for Windows](https://github.com/jyhsu2000/fgc/wiki/Guideline-for-Windows)
+[Guideline for Linux](https://github.com/jyhsu2000/fgc/wiki/Guideline-for-Linux)
 
 Issue or Suggestion
 --------
